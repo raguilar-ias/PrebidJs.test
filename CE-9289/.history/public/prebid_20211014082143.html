@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prebid.js v.5 test</title>
+    <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script async="async" src="js/prebid5.17.0.js"></script>
+    <script>
+        /* GPT START */
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function () {
+            googletag.pubads().disableInitialLoad();
+        });
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/57514611/rbarbini/generic_tests/self_hosted_leaderboard', [728, 90], 'leaderboard_001').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+        /* GPT END */
+
+        var sizes = [
+            [728, 90]
+        ];
+        var PREBID_TIMEOUT = 1000;
+
+        // PBJS website version
+        var adUnits = [{
+            code: 'leaderboard_001',
+            mediaTypes: {
+                banner: {
+                    sizes: [728, 90]//sizes
+                }
+            },
+            bids: [{
+                bidder: 'appnexus',
+                params: {
+                    placementId: 13144370,
+                }
+            }]
+        }];
+        //*/
+
+        // NOTE: next 2 lines missing from the documentation, but recommended by the prebid.js website
+        // https://docs.prebid.org/dev-docs/getting-started.html
+        var pbjs = pbjs || {};
+        pbjs.que = pbjs.que || [];
+
+        function initAdserver() {
+            if (pbjs.initAdserverSet) return;
+            pbjs.initAdserverSet = true;
+            googletag.cmd.push(function() {
+                pbjs.setTargetingForGPTAsync && pbjs.setTargetingForGPTAsync();
+                googletag.pubads().refresh();
+            });
+        }
+        
+        pbjs.que.push(function() {
+            // add RTD
+            pbjs.setConfig({
+                realTimeData: {
+                    auctionDelay: 200,
+                    dataProviders: [
+                        {
+                            name: "ias",
+                            waitForIt: true,
+                            params: {
+                                pubId: "924660"
+                            }
+                        }
+                    ]
+                }
+            })
+        });
+
+        googletag.cmd.push(function() {
+            pbjs.que.push(function() {
+                pbjs.addAdUnits(adUnits);
+                pbjs.requestBids({
+                    bidsBackHandler: initAdserver,
+                    timeout: PREBID_TIMEOUT
+                });
+            });
+        });
+            
+
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="leaderboard_001" class="leaderboard">
+            <script>
+                googletag.cmd.push(function() {
+                    googletag.display('leaderboard_001');
+                });
+            </script>
+        </div>
+        <h1>Our wonderful test page</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat magna interdum dignissim semper. Morbi
+            sodales lacus in lacinia dictum. Duis vitae felis pellentesque augue ullamcorper porta eget aliquam tellus.
+            Aliquam sem leo, tincidunt posuere malesuada ac, rhoncus nec libero. In sagittis magna non arcu scelerisque, in
+            fringilla velit condimentum. Mauris mollis scelerisque elementum. Pellentesque in tincidunt massa.</p>
+        <p>Duis tincidunt gravida tellus, sed malesuada leo. Nunc quis lacus sit amet mauris eleifend mollis. Donec congue
+            bibendum odio nec tincidunt. Morbi lacinia urna tempus lobortis condimentum. Nam a porttitor ante. Phasellus
+            luctus turpis vitae quam pretium tincidunt. Nunc rutrum vel nulla sed ultrices. Integer scelerisque maximus
+            molestie. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <p>Cras sed iaculis felis, et dictum mauris. Maecenas mi felis, aliquet id nisl sed, vehicula pulvinar sapien. Sed
+            non pharetra metus, quis commodo mi. Sed dolor libero, imperdiet sit amet ante et, scelerisque varius quam.
+            Donec est odio, vehicula non suscipit quis, congue eu risus. Etiam libero elit, porttitor vel ante sed, commodo
+            pharetra enim. Mauris pulvinar suscipit dolor sed sollicitudin.</p>
+        <p>Nam id libero a ligula congue mollis eget non nunc. Quisque non leo eget mi blandit consectetur. Fusce blandit,
+            lorem vel fermentum condimentum, nibh libero porttitor orci, eu sagittis lacus ante in justo. Nam sit amet urna
+            quis sem consectetur finibus nec ut nunc. Curabitur posuere rhoncus dictum. Aliquam erat volutpat. Quisque
+            gravida libero a metus molestie, non cursus mi sodales. Vivamus in metus eget felis facilisis semper sit amet a
+            purus. Maecenas dapibus tellus et metus sodales, eu venenatis lacus fringilla. Nam massa est, porttitor vel
+            tincidunt id, scelerisque at est. Etiam aliquet sollicitudin metus, non lacinia mi egestas eu. Sed sed vehicula
+            arcu, ac porta neque. Nulla tempus luctus libero sit amet gravida. Nam sit amet elit consequat arcu pharetra
+            sagittis sed at lorem. Sed vel lacus consequat, mattis mi in, tincidunt nisl.</p>
+        <p>Integer eu volutpat eros. Aliquam tempor orci non elementum fringilla. Nullam ullamcorper arcu eu est sodales, id
+            dignissim dui tristique. Phasellus lectus sapien, sodales id imperdiet nec, aliquam at libero. Pellentesque quis
+            tempus sapien. Maecenas elementum euismod leo, sed cursus lacus volutpat eget. Nam vitae justo non quam
+            fringilla aliquet. Vivamus elementum tellus ut orci sagittis tempus fringilla sed ex. Nullam eget mi ut massa
+            sodales vulputate eget eget elit. Etiam elementum suscipit pellentesque. Duis eget est sollicitudin, auctor mi
+            porta, rutrum est. Mauris in interdum libero. Vestibulum placerat vitae elit vitae pretium. Aenean dolor leo,
+            pharetra imperdiet ipsum eget, feugiat suscipit velit.</p>
+        <p>Vestibulum nec eleifend nibh. Praesent vel egestas tortor, id pellentesque eros. Donec ut malesuada neque.
+            Maecenas at ipsum eu dui commodo pretium. Cras in pulvinar lorem. Curabitur diam magna, lobortis sed tristique
+            viverra, vestibulum non nunc. Etiam scelerisque neque id molestie blandit. Vestibulum ac nulla id neque sodales
+            auctor. Integer efficitur nibh eu rhoncus dictum. Quisque varius commodo euismod. Vivamus convallis consequat
+            orci ullamcorper rhoncus. Ut sodales urna vitae dui fringilla ultricies. Proin vitae mauris bibendum, mattis dui
+            id, eleifend est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Nullam tempus tellus a libero vulputate hendrerit.</p>
+        <p>Cras vestibulum ipsum ut orci luctus, ac tristique felis dictum. Cras vel condimentum neque. Donec id hendrerit
+            elit. Nulla facilisi. Fusce eget fringilla elit. Etiam convallis condimentum orci quis lacinia. Aliquam non
+            cursus metus. Vivamus eget ipsum vitae ante consectetur semper. Donec tempus turpis sit amet sem commodo, vel
+            laoreet augue laoreet.</p>
+        <p>Fusce cursus efficitur est, vitae feugiat eros lacinia quis. Mauris sit amet posuere mi, ut porta urna. Aenean
+            nec turpis consectetur, volutpat urna vitae, ullamcorper ligula. Pellentesque habitant morbi tristique senectus
+            et netus et malesuada fames ac turpis egestas. Integer quam urna, sodales ut enim quis, mollis porta sem.
+            Pellentesque viverra est in tincidunt viverra. Duis pharetra nisi id tortor elementum vestibulum.</p>
+    </div>
+</body>
+</html>
